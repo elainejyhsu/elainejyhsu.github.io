@@ -1,0 +1,109 @@
+.wrap {
+background-color:rgb(249, 235, 162);
+background-image:url(../image/color.jpg);
+}
+
+
+(image/
+.circle1 {
+background-color:rgb(242, 166, 117);
+background-image:url(../image/flash.png);
+background-size:35%;
+background-position:center;
+background-repeat:no-repeat;
+color:rgb(66, 43, 53);
+position: absolute;
+top:-80px;
+left:200px;
+padding:50px;
+width:150px;
+height:150px; 
+border-radius:50%;
+}
+
+h1.title {
+color:rgb(66, 43, 53);
+padding:150px;
+padding-top:130px;
+padding-left:30px;
+font-size:20pt; 
+}
+
+.circle2 {
+background-color:rgb(66, 43, 53);
+line-height:20px; text-align;
+color:rgb(256, 256, 256);
+position:absolute;
+top:170px;
+left:120px;
+padding-top:40px;
+padding-right:20px;
+padding-left:20px;
+width:140px;
+height:140px; 
+font-size:10pt; 
+border-radius:50%;
+}
+
+.circle3 {
+background-color:rgb(256, 256, 256);
+line-height:20px; text-align: center; 
+color:rgb(66, 43, 53);
+position: absolute;
+top:150px;
+left:250px;
+padding:120px;
+width:235px;
+height:235px; 
+border-radius:50%;
+}
+
+h2 {
+font-size:14pt; 	
+font-weight:bold;
+}
+
+.circle4 {
+background-color:rgb(256, 256, 256);
+background-image:url(../image/pika2.jpg);
+background-size:80%;
+background-position:center;
+background-repeat:no-repeat;
+position:absolute;
+top:125px;
+left:650px;
+width:150px;image/
+}
+
+
+.circle5 {
+background-color:rgb(66, 43, 53);
+background-image:url(../image/fimage/b.png);
+background-size:50%;
+background-position:bottom;
+background-repeat:no-repeat;
+position:fixed;
+font-size:12pt; 
+line-height:30px; text-align:center;	
+color:rgb(256, 256, 256);
+top:50%;
+left:80%;
+width:100px;
+height:100px; 
+padding:10px;
+border-radius:50%;
+}
+
+.circle6 {
+background-color:rgb(248, 173, 154);
+line-height:20px; text-align: center; 
+color:rgb(256, 256, 256);
+position:absolute;
+top:650px;
+left:300px;
+padding:15px;
+width:90px;
+height:90px; 
+font-size:10pt; 
+border-radius:50%;
+}
