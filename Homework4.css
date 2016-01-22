@@ -1,12 +1,12 @@
 .wrap {
 background-color:rgb(249, 235, 162);
-background-image:url(../image/color.jpg);
+background-image:url(color.jpg);
 }
 
 
 .circle1 {
 background-color:rgb(242, 166, 117);
-background-image:url(../image/flash.png);
+background-image:url(flash.png);
 background-size:35%;
 background-position:center;
 background-repeat:no-repeat;
@@ -64,7 +64,7 @@ font-weight:bold;
 
 .circle4 {
 background-color:rgb(256, 256, 256);
-background-image:url(../image/pika2.jpg);
+background-image:url(pika2.jpg);
 background-size:80%;
 background-position:center;
 background-repeat:no-repeat;
@@ -77,7 +77,7 @@ width:150px;image/
 
 .circle5 {
 background-color:rgb(66, 43, 53);
-background-image:url(../image/fimage/b.png);
+background-image:url(fb.png);
 background-size:50%;
 background-position:bottom;
 background-repeat:no-repeat;
