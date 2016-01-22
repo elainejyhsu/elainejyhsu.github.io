@@ -1,8 +1,9 @@
 .wrap {
 background-color:rgb(249, 235, 162);
 background-image:url(color.jpg);
+width:1500px;
+height:1000px; 
 }
-
 
 .circle1 {
 background-color:rgb(242, 166, 117);
