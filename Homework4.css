@@ -69,9 +69,11 @@ background-size:80%;
 background-position:center;
 background-repeat:no-repeat;
 position:absolute;
-top:125px;
-left:650px;
+top:100px;
+left:600px;
 width:150px;
+height:150px; 
+border-radius:50%;
 }
 
 
