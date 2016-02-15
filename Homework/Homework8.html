@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Keyword 1,Keyword 2">
+    <meta name="description" content="description">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>Guess Number Game</title>
+</head>
+<style type="text/css">
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F6F6F6;
+}
+
+.container {
+    margin: auto;
+    padding: 2em;
+    width: 360px;
+    line-height: 150%;
+    top: 36px;
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    border: 0.25em solid #939393;
+}
+
+.wrapper {
+    margin: auto;
+    width: 300px;
+}
+
+h5 {
+    font-weight: 200;
+    font-size: 14pt;
+    left: -2px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul {
+    margin: auto;
+    font-weight: 200;
+    font-size: 14pt;
+    text-align: center;
+    left: -24px;
+}
+
+.Cheat ul li ul  {
+    display: none;
+}
+
+.Cheat ul li:active ul {
+    display: inline-block;
+}
+
+
+</style>
+
+<body onload="Start()">
+    <div class="container">
+        <div>
+            <form name="CheckNum">
+                <p>輸入四個數字 ( 0 ~ 9 / 數字不重複)</p>
+                <p>ps.可猜10次</p>
+                <br>
+                <input type="TEXT" name="chknum" size="4" maxlength="4">
+                <p>
+                    <input type="BUTTON" name="start" value="猜測數字" onclick="InCheck()">
+                    <input type="BUTTON" name="restart" value="重新遊戲" onclick="ReStart()">
+                    <br>
+                    <p></p>
+                   <br>
+                    <div class="Cheat">
+                        <ul>
+                            <li>
+                                <input type="BUTTON" value="提示">
+                                <ul>
+                                    <input type="BUTTON" name="defnum" value="1234">
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </p>
+            </form>
+        </div>
+        <div>
+            <h5>[組合] &nbsp  [結果]</h5>
+            <form name="KeyIn">
+                <input type="TEXT" name="keyin1" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin2" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin3" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin4" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin5" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin6" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin7" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin8" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin9" size="8" disabled>
+                <br>
+                <input type="TEXT" name="keyin10" size="8" disabled>
+                <br>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+    var defchar = new startArray(4);
+    var chkchar = new startArray(4);
+    var count = 0;
+
+    function ReStart() {
+        document.CheckNum.chknum.value = "";
+        document.KeyIn.keyin1.value = "";
+        document.KeyIn.keyin2.value = "";
+        document.KeyIn.keyin3.value = "";
+        document.KeyIn.keyin4.value = "";
+        document.KeyIn.keyin5.value = "";
+        document.KeyIn.keyin6.value = "";
+        document.KeyIn.keyin7.value = "";
+        document.KeyIn.keyin8.value = "";
+        document.KeyIn.keyin9.value = "";
+        document.KeyIn.keyin10.value = "";
+        count = 0;
+        Start();
+    }
+
+    function Start() {
+        RND();
+        ToDefChar();
+        CompDefChar();
+    }
+
+    function RND() {
+        var num = parseInt(Math.random() * 10000);
+        document.CheckNum.defnum.value = num;
+        if (num < 1000) RND();
+    }
+
+    function ToDefChar() {
+        num = document.CheckNum.defnum.value;
+        defchar[0] = num.substring(0, 1);
+        defchar[1] = num.substring(1, 2);
+        defchar[2] = num.substring(2, 3);
+        defchar[3] = num.substring(3, 4);
+    }
+
+    function ToChkChar() {
+        num = document.CheckNum.chknum.value;
+        chkchar[0] = num.substring(0, 1);
+        chkchar[1] = num.substring(1, 2);
+        chkchar[2] = num.substring(2, 3);
+        chkchar[3] = num.substring(3, 4);
+    }
+
+    function CompDefChar() {
+        var y = 0;
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (defchar[i] == defchar[j] && i != j) y = 1;
+            }
+        }
+        if (y == 1) Start();
+    }
+
+    function InCheck() {
+        var y = 0;
+        var a = 0;
+        var b = 0;
+        if (count == 10) {
+            alert("重新玩，請按重新遊戲，取新的數字串");
+            return;
+        }
+        if (document.CheckNum.chknum.value.length < 4) {
+            document.CheckNum.chknum.value = "";
+            alert("請輸入四個不同的號碼．");
+            return;
+        }
+        ToChkChar();
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (chkchar[i] == chkchar[j] && i != j) y = 1;
+            }
+        }
+        if (y == 1) {
+            document.CheckNum.chknum.value = "";
+            alert("輸入相同數字");
+            return;
+        }
+        if (document.CheckNum.chknum.value == document.CheckNum.defnum.value && count < 10) {
+            alert("答對了!!");
+            count = 10;
+            return;
+        }
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (defchar[i] == chkchar[j]) {
+                    if (i == j) a++;
+                    else b++;
+                }
+            }
+        }
+        count++;
+        if (count == 1) document.KeyIn.keyin1.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 2) document.KeyIn.keyin2.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 3) document.KeyIn.keyin3.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 4) document.KeyIn.keyin4.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 5) document.KeyIn.keyin5.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 6) document.KeyIn.keyin6.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 7) document.KeyIn.keyin7.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 8) document.KeyIn.keyin8.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 9) document.KeyIn.keyin9.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+        if (count == 10) {
+            document.KeyIn.keyin10.value = document.CheckNum.chknum.value + "    " + a + "A" + b + "B";
+            alert("十次都沒猜中");
+            return;
+        }
+        document.CheckNum.chknum.value = "";
+    }
+
+    function startArray(x) {
+        this.length = x;
+        for (var i = 0; i < x; i++) this[i] = 0;
+    }
+    </script>
+</body>
+
+</html>
